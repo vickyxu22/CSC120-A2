@@ -19,5 +19,9 @@ class Computer:
         self.operating_system = operating_system
         self.year_made = year_made
         self.price = price
-        
+    
+    def __str__(self):
+        return "description: "+self.description+'; processor_type: '+self.processor_type+'; hard_drive_capacity: '+str(self.hard_drive_capacity)+'; memory: '+str(self.memory)+'; operating_system: '+self.operating_system+'; year_made: '+str(self.year_made)+'; price: '+str(self.price)
+    
+
     # What methods will you need?
