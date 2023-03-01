@@ -73,6 +73,12 @@ class ResaleShop:
        else:
            print("Item", item_id, "not found. Please select another item to refurbish.")
 
+    def remove_from_inventory(self, item_id: int):
+        if len(self.inventory) > item_id-1:
+            del self.inventory[item_id-1]
+            print("Item", item_id, "removed from inventory!")
+        else: 
+            print("Item", item_id, "not found. Please select another item to remove from inventory.")
 
 def main():
   
