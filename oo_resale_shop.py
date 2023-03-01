@@ -81,51 +81,47 @@ class ResaleShop:
             print("Item", item_id, "not found. Please select another item to remove from inventory.")
 
 def main():
-  
-   computer = Computer("Mac Pro (Late 2013)","3.5 GHc 6-Core Intel Xeon E5",1024, 64,"macOS Big Sur", 2013, 1500)
-   resale = ResaleShop([], 0)
+    
+    computer = Computer("Mac Pro (Late 1999)","3.5 GHc 6-Core Intel Xeon E5",1024, 64,"macOS Big Sur", 2013, 1500)
+    resale = ResaleShop([], 0)
 
+    print("-" * 21)
+    print("COMPUTER RESALE STORE")
+    print("-" * 21)
 
-   print("-" * 21)
-   print("COMPUTER RESALE STORE")
-   print("-" * 21)
+    # Add it to the resale store's inventory
+    print("Buying", computer.description)
+    print("Adding to inventory...")
+    computer_id = resale.buy(computer)
+    print("Done.\n")
 
+    # Make sure it worked by checking inventory
+    print("Checking inventory...")
+    resale.print_inventory()
+    print("Done.\n")
 
-   # Add it to the resale store's inventory
-   print("Buying", computer.description)
-   print("Adding to inventory...")
-   computer_id = resale.buy(computer)
-   print("Done.\n")
+    # Now, let's refurbish it
+    new_OS = "MacOS Monterey"
+    print("Refurbishing Item ID:", computer_id, ", updating OS to", new_OS)
+    print("Updating inventory...")
+    resale.refurbish(computer_id, new_OS)
+    print("Done.\n")
 
-
-   # Make sure it worked by checking inventory
-   print("Checking inventory...")
-   resale.print_inventory()
-   print("Done.\n")
-
-
-   # Now, let's refurbish it
-   new_OS = "MacOS Monterey"
-   print("Refurbishing Item ID:", computer_id, ", updating OS to", new_OS)
-   print("Updating inventory...")
-   resale.refurbish(computer_id, new_OS)
-   print("Done.\n")
-
-
-   # Make sure it worked by checking inventory
-   print("Checking inventory...")
-   resale.print_inventory()
-   print("Done.\n")
-  
-   # Now, let's sell it!
-   print("Selling Item ID:", computer_id)
-   resale.sell(computer_id)
-  
-   # Make sure it worked by checking inventory
-   print("Checking inventory...")
-   resale.print_inventory()
-   print("Done.\n")
-
+    # Make sure it worked by checking inventory
+    print("Checking inventory...")
+    resale.print_inventory()
+    print("Done.\n")
+    
+    # Now, let's sell it!
+    print("Selling Item ID:", computer_id)
+    resale.sell(computer_id)
+    print("Removing Item ID:", computer_id)
+    resale.remove_from_inventory(computer_id)
+    
+    # Make sure it worked by checking inventory
+    print("Checking inventory...")
+    resale.print_inventory()
+    print("Done.\n")
 
 # Calls the main() function when this file is run
 if __name__ == "__main__": main()
